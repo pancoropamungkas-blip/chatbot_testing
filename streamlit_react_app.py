@@ -1,5 +1,33 @@
 # Import the necessary libraries
 import streamlit as st  # For creating the web app interface
+
+# URL GIF yang akan digunakan sebagai background
+# Anda bisa mengganti ini dengan URL GIF dari internet, atau menggunakan GIF lokal
+# yang di-encode ke base64 (lihat catatan di bawah).
+gif_url = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd242dm01Z2J4bW1iN2Vsdm50ZzZ0a2Z4b2FhZWJ1bXNvbzJmd292YiZlcD12MV9pbnRlcm5hbF9naWZfY2F0c19hbmQmbWU9Z2lmX2Vtb2ppJnR5cGU9Z2lmJmNoYW5uZWxpZD1naWZfY2FhdHMmaWQ9MjcxMjc3NzQ3NjU4NTM4NzI1OA/JIX9t2V0CNAJ0pB3tS/giphy.gif"
+
+# CSS kustom untuk mengatur background halaman
+page_bg_gif = f"""
+<style>
+body {{
+    background-image: url("{gif_url}");
+    background-size: cover; /* Menutupi seluruh area tanpa terulang */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+    background-attachment: fixed; /* Gambar tetap saat scroll */
+    background-position: center; /* Posisikan gambar di tengah */
+}}
+/* Opsional: Untuk membuat konten Streamlit lebih mudah dibaca di atas GIF */
+.stApp {{
+    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan untuk konten utama */
+    border-radius: 10px;
+    padding: 10px;
+}}
+</style>
+"""
+
+# Suntikkan CSS kustom ke aplikasi Streamlit
+st.markdown(page_bg_gif, unsafe_allow_html=True)
+
 from langchain_google_genai import ChatGoogleGenerativeAI  # For interacting with Google Gemini via LangChain
 from langgraph.prebuilt import create_react_agent  # For creating a ReAct agent
 from langchain_core.messages import HumanMessage, AIMessage  # For message formatting
