@@ -72,12 +72,12 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Handle the reset button click.
-if reset_button:
+# if reset_button:
     # If the reset button is clicked, clear the agent and message history from memory.
-    st.session_state.pop("agent", None)
-    st.session_state.pop("messages", None)
+#    st.session_state.pop("agent", None)
+#    st.session_state.pop("messages", None)
     # st.rerun() tells Streamlit to refresh the page from the top.
-    st.rerun()
+#    st.rerun()
 
 # --- 5. Display Past Messages ---
 
