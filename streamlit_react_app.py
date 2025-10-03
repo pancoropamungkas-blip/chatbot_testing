@@ -7,8 +7,8 @@ from langchain_core.messages import HumanMessage, AIMessage  # For message forma
 # --- 1. Page Configuration and Title ---
 
 # Set the title and a caption for the web page
-st.title("💬 LangGraph ReAct Chatbot")
-st.caption("A simple and friendly chat using LangGraph with Google's Gemini model")
+st.title("💬 Teman Ngobrol")
+st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model Gemini Google")
 
 # --- 2. Sidebar for Settings ---
 
