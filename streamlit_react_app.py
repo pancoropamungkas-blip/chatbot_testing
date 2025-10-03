@@ -33,7 +33,7 @@ try:
     /* Gaya untuk kontainer utama aplikasi Streamlit (agar konten mudah dibaca) */
     .stApp {{
         background-color: rgba(255, 255, 255, 0); /* Latar belakang semi-transparan putih */
-        border-radius: 10px;
+        border-radius: 100px;
         padding: 10px;
     }}  
 
