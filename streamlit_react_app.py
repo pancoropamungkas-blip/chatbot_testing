@@ -30,12 +30,12 @@ try:
         background-position: center; /* Posisikan gambar di tengah */
     }}
 
-    /* Gaya untuk kontainer utama aplikasi Streamlit (agar konten mudah dibaca) */
+    /* Gaya untuk kontainer utama aplikasi Streamlit (agar konten mudah dibaca) 
     .stApp {{
         background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan putih */
         border-radius: 10px;
         padding: 10px;
-    }}
+    }}  */
 
     /* Gaya untuk sidebar */
     .stSidebar > div:first-child {{
