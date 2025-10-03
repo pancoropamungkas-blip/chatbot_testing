@@ -1,0 +1,8 @@
+[theme]
+backgroundColor="#F0F2F6"          # Warna background halaman utama (untuk chat dan respon)
+secondaryBackgroundColor="#ADD8E6" # Warna background sidebar (menu geser)
+
+# Anda juga bisa mengatur warna lain jika diperlukan:
+# primaryColor="#FF4B4B"           # Warna utama (misal tombol, slider)
+# textColor="#262730"              # Warna teks
+# font="sans serif"                # Jenis font
