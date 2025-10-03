@@ -1,4 +1,4 @@
-# Import the necessary libraries
+amat Datang!# Import the necessary libraries
 import streamlit as st  # For creating the web app interface
 from langchain_google_genai import ChatGoogleGenerativeAI  # For interacting with Google Gemini via LangChain
 from langgraph.prebuilt import create_react_agent  # For creating a ReAct agent
@@ -15,8 +15,8 @@ st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model 
 # Create a sidebar section for app settings using 'with st.sidebar:'
 with st.sidebar:
     # Add a subheader to organize the settings
-    st.subheader("Pintu Geser")
-    st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model Gemini Google")
+    st.subheader("Selamat datang!")
+    st.caption("Saat santai dan minum kopi di senja hari adalah saat yang tepat mengobrol dengan sahabat AI Anda")
     
     # Create a text input field for the Google AI API Key.
     # 'type="password"' hides the key as the user types it.
