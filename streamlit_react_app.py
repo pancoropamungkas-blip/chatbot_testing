@@ -1,4 +1,4 @@
-amat Datang!# Import the necessary libraries
+# Import the necessary libraries
 import streamlit as st  # For creating the web app interface
 from langchain_google_genai import ChatGoogleGenerativeAI  # For interacting with Google Gemini via LangChain
 from langgraph.prebuilt import create_react_agent  # For creating a ReAct agent
