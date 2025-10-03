@@ -16,6 +16,7 @@ st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model 
 with st.sidebar:
     # Add a subheader to organize the settings
     st.subheader("Pintu Geser")
+    st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model Gemini Google")
     
     # Create a text input field for the Google AI API Key.
     # 'type="password"' hides the key as the user types it.
