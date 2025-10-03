@@ -15,7 +15,7 @@ st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model 
 # Create a sidebar section for app settings using 'with st.sidebar:'
 with st.sidebar:
     # Add a subheader to organize the settings
-    st.subheader("Settings")
+    st.subheader("Pintu Geser")
     
     # Create a text input field for the Google AI API Key.
     # 'type="password"' hides the key as the user types it.
@@ -30,9 +30,9 @@ with st.sidebar:
 
 # Check if the user has provided an API key.
 # If not, display an informational message and stop the app from running further.
-if not google_api_key:
-    st.info("Please add your Google AI API key in the sidebar to start chatting.", icon="🗝️")
-    st.stop()
+# if not google_api_key:
+#    st.info("Please add your Google AI API key in the sidebar to start chatting.", icon="🗝️")
+#    st.stop()
 
 # This block of code handles the creation of the LangGraph agent.
 # It's designed to be efficient: it only creates a new agent if one doesn't exist
@@ -92,7 +92,7 @@ for msg in st.session_state.messages:
 
 # Create a chat input box at the bottom of the page.
 # The user's typed message will be stored in the 'prompt' variable.
-prompt = st.chat_input("Type your message here...")
+prompt = st.chat_input("Buka Obrolan...")
 
 # Check if the user has entered a message.
 if prompt:
@@ -120,7 +120,7 @@ if prompt:
         if "messages" in response and len(response["messages"]) > 0:
             answer = response["messages"][-1].content
         else:
-            answer = "I'm sorry, I couldn't generate a response."
+            answer = "Lagi Ngantuk."
 
     except Exception as e:
         # If any error occurs, create an error message to display to the user.
