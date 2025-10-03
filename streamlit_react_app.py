@@ -72,6 +72,7 @@ st.caption("Obrolan sederhana dan bersahabat menggunakan LangGraph dengan model 
 # --- 2. Sidebar for Settings ---
 
 # Create a sidebar section for app settings using 'with st.sidebar:'
+hide_sidebar = True # Set True untuk menyembunyikan, False untuk menampilkan
 with st.sidebar:
     # Add a subheader to organize the settings
     st.subheader("Selamat datang!")
