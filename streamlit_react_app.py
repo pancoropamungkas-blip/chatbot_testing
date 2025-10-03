@@ -11,7 +11,7 @@ def get_base64_of_bin_file(bin_file):
 
 # --- Konfigurasi Gambar Lokal ---
 # Ganti dengan nama file PNG Anda: RoboPit.png
-local_image_path = "RoboPit.png"
+local_image_path = "RoboPit.jpg"
 
 # --- CSS Kustom untuk Latar Belakang Halaman dan Sidebar ---
 try:
