@@ -10,7 +10,7 @@ def get_base64_of_bin_file(bin_file):
     return base64.b64encode(data).decode()
 
 # --- Konfigurasi Gambar Lokal ---
-# Ganti dengan nama file PNG Anda: RoboPit.png
+# Ganti dengan nama file PNG Anda: RoboPit.jpg
 local_image_path = "RoboPit.jpg"
 
 # --- CSS Kustom untuk Latar Belakang Halaman dan Sidebar ---
