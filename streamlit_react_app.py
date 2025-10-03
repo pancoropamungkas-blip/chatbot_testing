@@ -1,33 +1,64 @@
 # Import the necessary libraries
 import streamlit as st  # For creating the web app interface
 
-# URL GIF yang akan digunakan sebagai background
-# Anda bisa mengganti ini dengan URL GIF dari internet, atau menggunakan GIF lokal
-# yang di-encode ke base64 (lihat catatan di bawah).
-gif_url = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd242dm01Z2J4bW1iN2Vsdm50ZzZ0a2Z4b2FhZWJ1bXNvbzJmd292YiZlcD12MV9pbnRlcm5hbF9naWZfY2F0c19hbmQmbWU9Z2lmX2Vtb2ppJnR5cGU9Z2lmJmNoYW5uZWxpZD1naWZfY2FhdHMmaWQ9MjcxMjc3NzQ3NjU4NTM4NzI1OA/JIX9t2V0CNAJ0pB3tS/giphy.gif"
+import base64
 
-# CSS kustom untuk mengatur background halaman
-page_bg_gif = f"""
-<style>
-body {{
-    background-image: url("{gif_url}");
-    background-size: cover; /* Menutupi seluruh area tanpa terulang */
-    background-repeat: no-repeat; /* Tidak mengulang gambar */
-    background-attachment: fixed; /* Gambar tetap saat scroll */
-    background-position: center; /* Posisikan gambar di tengah */
-}}
-/* Opsional: Untuk membuat konten Streamlit lebih mudah dibaca di atas GIF */
-.stApp {{
-    background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan untuk konten utama */
-    border-radius: 10px;
-    padding: 10px;
-}}
-</style>
-"""
+# --- Fungsi untuk mengonversi file biner (gambar) ke string Base64 ---
+# @st.cache_data akan menyimpan hasil konversi agar tidak dihitung ulang
+# setiap kali aplikasi dijalankan ulang, meningkatkan performa.
+@st.cache_data
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-# Suntikkan CSS kustom ke aplikasi Streamlit
-st.markdown(page_bg_gif, unsafe_allow_html=True)
+# --- Konfigurasi Gambar Lokal ---
+# Ganti 'nama_gambar_anda.png' dengan nama file PNG Anda.
+# Pastikan file ini berada dalam folder yang sama dengan script Python ini,
+# atau berikan path lengkap ke file tersebut.
+local_image_path = "background_image.png" # Contoh: Ganti dengan nama file PNG Anda
 
+# --- CSS Kustom untuk Latar Belakang Halaman dan Sidebar ---
+# Coba untuk mendapatkan string Base64 dari gambar lokal
+try:
+    bin_str = get_base64_of_bin_file(local_image_path)
+    # Gunakan data:image/png;base64, diikuti dengan string Base64
+    # Perhatikan: 'image/png' untuk PNG, 'image/gif' untuk GIF, 'image/jpeg' untuk JPG
+    image_url_for_css = f"data:image/png;base64,{bin_str}"
+
+    page_bg_image_and_sidebar_css = f"""
+    <style>
+    /* Gaya untuk latar belakang halaman utama (body) */
+    body {{
+        background-image: url("RoboPit.png");
+        background-size: cover; /* Menutupi seluruh area tanpa terulang */
+        background-repeat: no-repeat; /* Tidak mengulang gambar */
+        background-attachment: fixed; /* Gambar tetap saat scroll */
+        background-position: center; /* Posisikan gambar di tengah */
+    }}
+
+    /* Gaya untuk kontainer utama aplikasi Streamlit (agar konten mudah dibaca) */
+    .stApp {{
+        background-color: rgba(255, 255, 255, 0.7); /* Latar belakang semi-transparan putih */
+        border-radius: 10px;
+        padding: 10px;
+    }}
+
+    /* Gaya untuk sidebar */
+    .stSidebar > div:first-child {{
+        background-color: rgba(240, 242, 246, 0.7); /* Warna abu-abu terang semi-transparan */
+    }}
+    </style>
+    """
+    # Suntikkan CSS kustom ke aplikasi Streamlit
+    st.markdown(page_bg_image_and_sidebar_css, unsafe_allow_html=True)
+
+except FileNotFoundError:
+    st.error(f"Error: File gambar '{local_image_path}' tidak ditemukan.")
+    st.info("Menggunakan latar belakang standar karena gambar tidak ditemukan.")
+    # Jika gambar tidak ditemukan, Anda bisa menyuntikkan CSS default atau tidak melakukan apa-apa
+    # Contoh:
+    # st.markdown("""<style>body { background-color: #f0f2f6; }</style>""", unsafe_allow_html=True)
 from langchain_google_genai import ChatGoogleGenerativeAI  # For interacting with Google Gemini via LangChain
 from langgraph.prebuilt import create_react_agent  # For creating a ReAct agent
 from langchain_core.messages import HumanMessage, AIMessage  # For message formatting
