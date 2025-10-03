@@ -1,5 +1,5 @@
 [theme]
-backgroundColor="#F0F2F6"          # Warna background halaman utama (untuk chat dan respon)
+backgroundColor="red"          # Warna background halaman utama (untuk chat dan respon)
 secondaryBackgroundColor="#ADD8E6" # Warna background sidebar (menu geser)
 
 # Anda juga bisa mengatur warna lain jika diperlukan:
