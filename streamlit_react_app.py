@@ -24,7 +24,7 @@ try:
     /* Gaya untuk latar belakang halaman utama (body) */
     body {{
         background-image: url("{image_url_for_css}");
-        background-size: cover; /* Menutupi seluruh area tanpa terulang */
+     /*   background-size: cover;  Menutupi seluruh area tanpa terulang */
         background-repeat: no-repeat; /* Tidak mengulang gambar */
         background-attachment: fixed; /* Gambar tetap saat scroll */
         background-position: center; /* Posisikan gambar di tengah */
