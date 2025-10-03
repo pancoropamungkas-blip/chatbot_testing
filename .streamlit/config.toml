@@ -4,5 +4,5 @@ secondaryBackgroundColor="#C2A68C" # Warna background sidebar (menu geser)
 
 # Anda juga bisa mengatur warna lain jika diperlukan:
 # primaryColor="#FF4B4B"           # Warna utama (misal tombol, slider)
-# textColor="#262730"              # Warna teks
+textColor="#262730"              # Warna teks
 # font="sans serif"                # Jenis font
