@@ -1,11 +1,8 @@
 # Import the necessary libraries
 import streamlit as st  # For creating the web app interface
-
 import base64
 
 # --- Fungsi untuk mengonversi file biner (gambar) ke string Base64 ---
-# @st.cache_data akan menyimpan hasil konversi agar tidak dihitung ulang
-# setiap kali aplikasi dijalankan ulang, meningkatkan performa.
 @st.cache_data
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
@@ -13,24 +10,20 @@ def get_base64_of_bin_file(bin_file):
     return base64.b64encode(data).decode()
 
 # --- Konfigurasi Gambar Lokal ---
-# Ganti 'nama_gambar_anda.png' dengan nama file PNG Anda.
-# Pastikan file ini berada dalam folder yang sama dengan script Python ini,
-# atau berikan path lengkap ke file tersebut.
-local_image_path = "background_image.png" # Contoh: Ganti dengan nama file PNG Anda
+# Ganti dengan nama file PNG Anda: RoboPit.png
+local_image_path = "RoboPit.png"
 
 # --- CSS Kustom untuk Latar Belakang Halaman dan Sidebar ---
-# Coba untuk mendapatkan string Base64 dari gambar lokal
 try:
     bin_str = get_base64_of_bin_file(local_image_path)
     # Gunakan data:image/png;base64, diikuti dengan string Base64
-    # Perhatikan: 'image/png' untuk PNG, 'image/gif' untuk GIF, 'image/jpeg' untuk JPG
     image_url_for_css = f"data:image/png;base64,{bin_str}"
 
     page_bg_image_and_sidebar_css = f"""
     <style>
     /* Gaya untuk latar belakang halaman utama (body) */
     body {{
-        background-image: url("RoboPit.png");
+        background-image: url("{image_url_for_css}");
         background-size: cover; /* Menutupi seluruh area tanpa terulang */
         background-repeat: no-repeat; /* Tidak mengulang gambar */
         background-attachment: fixed; /* Gambar tetap saat scroll */
@@ -55,10 +48,17 @@ try:
 
 except FileNotFoundError:
     st.error(f"Error: File gambar '{local_image_path}' tidak ditemukan.")
+    st.info("Memuat dengan latar belakang standar.")
+    # Opsional: Atur latar belakang default jika gambar tidak ditemukan
+    # st.markdown("""<style>body { background-color: #f0f2f6; }</style>""", unsafe_allow_html=True)
+
+except FileNotFoundError:
+    st.error(f"Error: File gambar '{local_image_path}' tidak ditemukan.")
     st.info("Menggunakan latar belakang standar karena gambar tidak ditemukan.")
     # Jika gambar tidak ditemukan, Anda bisa menyuntikkan CSS default atau tidak melakukan apa-apa
     # Contoh:
     # st.markdown("""<style>body { background-color: #f0f2f6; }</style>""", unsafe_allow_html=True)
+
 from langchain_google_genai import ChatGoogleGenerativeAI  # For interacting with Google Gemini via LangChain
 from langgraph.prebuilt import create_react_agent  # For creating a ReAct agent
 from langchain_core.messages import HumanMessage, AIMessage  # For message formatting
